@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -eu
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+WRAPPER_DIR="$SCRIPT_DIR/.mvn/wrapper"
+PROPS_FILE="$WRAPPER_DIR/maven-wrapper.properties"
+
+if [ ! -f "$PROPS_FILE" ]; then
+  echo "Arquivo de propriedades do Maven Wrapper nao encontrado."
+  exit 1
+fi
+
+DISTRIBUTION_URL=$(grep '^distributionUrl=' "$PROPS_FILE" | cut -d'=' -f2-)
+MAVEN_HOME="$WRAPPER_DIR/apache-maven/apache-maven-3.9.9"
+ZIP_FILE="$WRAPPER_DIR/apache-maven/apache-maven-3.9.9-bin.zip"
+MVN_CMD="$MAVEN_HOME/bin/mvn"
+
+if [ ! -x "$MVN_CMD" ]; then
+  echo "Baixando Maven Wrapper..."
+  mkdir -p "$WRAPPER_DIR/apache-maven"
+  curl -fsSL "$DISTRIBUTION_URL" -o "$ZIP_FILE"
+  unzip -oq "$ZIP_FILE" -d "$WRAPPER_DIR/apache-maven"
+fi
+
+exec "$MVN_CMD" "$@"
