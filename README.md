@@ -1,52 +1,62 @@
-# Sistema de Gestao de Vendas
+# 🛒 Sistema de Gestão de Vendas
 
-Projeto full stack com React no frontend e Spring Boot no backend.
+Sistema full stack desenvolvido para gerenciamento de vendas, estoque e análise de dados, simulando um ambiente real de negócio.
 
-## Video do sistema
+---
 
-https://youtu.be/fXHihUuA-7o
+## 🎥 Demonstração
 
-## Funcionalidades
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=fXHihUuA-7o">
+    <img src="https://img.youtube.com/vi/fXHihUuA-7o/maxresdefault.jpg" width="700px"/>
+  </a>
+</p>
 
-- Cadastro de produtos
-- Controle de estoque
-- Registro de vendas
-- Dashboard com graficos
-- Exportacao de relatorio em Excel e PDF
+---
 
-## Execucao
+## 🚀 Funcionalidades
 
-### Backend
+- 📦 Cadastro de produtos  
+- 📊 Controle de estoque  
+- 💰 Registro de vendas  
+- 📈 Dashboard com gráficos  
+- 📑 Exportação de relatórios (Excel e PDF)  
 
-PowerShell/Windows:
+---
 
-```powershell
-cd C:\Users\pitoco\sgvpdv\backend
-$env:JAVA_HOME="C:\Program Files\Java\jdk-26"
-$env:Path="$env:JAVA_HOME\bin;$env:Path"
-.\mvnw.cmd spring-boot:run
-```
+## 🛠️ Tecnologias
 
-Git Bash:
+**Front-end:**
+- React
+- HTML, CSS, JavaScript
+
+**Back-end:**
+- Java (Spring Boot)
+
+**Banco de Dados:**
+- MySQL
+
+**Ferramentas:**
+- Git
+- GitHub
+
+---
+
+## 🧠 Arquitetura
+
+O sistema foi desenvolvido seguindo boas práticas:
+
+- MVC (Model-View-Controller)  
+- Arquitetura em Camadas  
+- API REST  
+- Cliente-Servidor  
+
+---
+
+## ⚙️ Como executar o projeto
+
+### 🔧 Backend
 
 ```bash
 cd backend
 ./mvnw spring-boot:run
-```
-
-Configure o MySQL em `backend/src/main/resources/application.properties`.
-
-Se o MySQL local nao usar senha para o usuario `root`, deixe:
-
-```properties
-spring.datasource.username=root
-spring.datasource.password=
-```
-
-### Frontend
-
-```powershell
-cd C:\Users\pitoco\sgvpdv\frontend
-npm install
-npm run dev
-```
